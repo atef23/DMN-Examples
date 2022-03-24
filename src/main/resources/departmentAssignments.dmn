@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_6ABF9A59-4741-4EA2-BAA3-5CCFD2B234DE" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:included1="https://kiegroup.org/dmn/_3C091D67-E492-4647-A500-685D6925F568" xmlns:included2="https://kiegroup.org/dmn/_7E929948-BCDC-4075-9631-0D1B3AD7E341" id="_827F80AF-1F5F-4659-B3EC-28DDB2C844AF" name="departmentAssignments" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_6ABF9A59-4741-4EA2-BAA3-5CCFD2B234DE">
+  <dmn:extensionElements/>
+  <dmn:import id="_B1A5F077-5801-4B82-839D-1C1FE709BB73" name="BasicHomeGoods-IMPORT" namespace="https://kiegroup.org/dmn/_3C091D67-E492-4647-A500-685D6925F568" locationURI="BasicHomeGoods.dmn" importType="http://www.omg.org/spec/DMN/20180521/MODEL/"/>
+  <dmn:import id="_B421CF0B-93B6-418B-971E-679D837BD432" name="TaipeiElectronic-IMPORT" namespace="https://kiegroup.org/dmn/_7E929948-BCDC-4075-9631-0D1B3AD7E341" locationURI="TaipeiElectronic.dmn" importType="http://www.omg.org/spec/DMN/20180521/MODEL/"/>
+  <dmn:itemDefinition id="_B3E127EB-9BA6-4210-9327-70DBDC122E49" name="InventoriedProduct" isCollection="false">
+    <dmn:itemComponent id="_074AC49A-B482-4248-A389-4568AC12D93B" name="name" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_F6391605-B492-4433-80C8-7813BC4CDD5F" name="supplierCode" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_C0652C9B-7502-431D-91A1-A5DB2B4DC003" name="supplierManager" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_E058A12A-9D9A-4A31-B971-13946B4EA1DB" name="department" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_6EBAB512-5E79-4A38-9B04-DE1CE1178275" name="supplierName">
+    <dmn:extensionElements/>
+    <dmn:variable id="_65371475-E18A-4228-BE62-DE3642AACA90" name="supplierName"/>
+  </dmn:inputData>
+  <dmn:inputData id="_D3F9DBE5-80D4-41D3-AF28-60B1BBDAF26E" name="product">
+    <dmn:extensionElements/>
+    <dmn:variable id="_535224C7-D8D9-4761-8FCD-E85FCD90E131" name="product"/>
+  </dmn:inputData>
+  <dmn:decision id="_56A3953F-513C-4EAF-B0A8-0776ACD09A9E" name="inventoriedProduct">
+    <dmn:extensionElements/>
+    <dmn:variable id="_2F986249-A76F-4603-8360-E07B543A3204" name="inventoriedProduct" typeRef="InventoriedProduct"/>
+    <dmn:informationRequirement id="_C0371FE1-BE2C-4CCC-ACA4-3D3191DC6F9E">
+      <dmn:requiredInput href="#_6EBAB512-5E79-4A38-9B04-DE1CE1178275"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_14C08C49-D992-4E50-91CF-CC0A06F22E7D">
+      <dmn:requiredInput href="#_D3F9DBE5-80D4-41D3-AF28-60B1BBDAF26E"/>
+    </dmn:informationRequirement>
+    <dmn:knowledgeRequirement id="_0806C07D-2CBD-4682-A236-08B4D52E0B22">
+      <dmn:requiredKnowledge href="#_B7FB89C9-48C0-4D79-BE60-57DE4A91D1F7"/>
+    </dmn:knowledgeRequirement>
+    <dmn:decisionTable id="_4CA102CE-14E6-4A49-98DF-C27BA92E6A27" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_6A4D5974-2E53-4808-A241-820002B0EABB">
+        <dmn:inputExpression id="_32FE9E8E-513D-4D7A-9184-3D969E3FFD85">
+          <dmn:text>product</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_DE731D76-6A16-4649-8424-AAB1440C6B50">
+        <dmn:inputExpression id="_4684B0D1-2B6B-419C-8FA6-E124EFBF7C4B">
+          <dmn:text>supplierName</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_F58AD8D5-8272-4078-B887-A967FC7B58AF" name="name" typeRef="string"/>
+      <dmn:output id="_72D64606-2A57-41CA-8DC8-4ED01952784C" name="supplierCode" typeRef="number"/>
+      <dmn:output id="_99032B34-BDE2-4D47-8401-57CB553902AF" name="supplierManager" typeRef="string"/>
+      <dmn:output id="_701DABF4-0FE5-47BF-A728-BECAB81C29B2" name="department" typeRef="string"/>
+      <dmn:annotation name="annotation-1"/>
+      <dmn:rule id="_56AD4E09-BD30-4225-AAC5-5AD415525590">
+        <dmn:inputEntry id="_20AD60E1-F481-4694-8829-0E71AD9D0F9B">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_604F13D3-0260-4474-8A81-5B55E1F10C6D">
+          <dmn:text>"BasicHomeGoods"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_A5C656C9-FA79-4E8A-94D2-C369AB10CC86">
+          <dmn:text>product</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_A9C9B478-B056-4ECE-A01E-F6A8B24AE4CC">
+          <dmn:text>83460920</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_34121FC5-6606-40A1-A1DB-ACD47238FE0A">
+          <dmn:text>"Charles Gnarles"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_05DC2134-AB6E-4AA4-B84E-0ED49D1ACCCB">
+          <dmn:text>LookupDepartment(supplierName,product)</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_CD00EAE3-116C-40E0-9637-3F1329BEF3E6">
+        <dmn:inputEntry id="_A5322202-A29B-4EE2-B19D-9F7686D2F460">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_167D17C8-006E-49ED-BCB3-AD92CFC492C7">
+          <dmn:text>"TaipeiElectronic"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_DCDA5659-E275-4814-8F6A-F5528B9AE0D6">
+          <dmn:text>product</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_DEF5C4CD-0E92-4D6D-9CCF-3EDF9B745418">
+          <dmn:text>1327492</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_545F72B7-5E88-4CA0-98B5-459A4E7142C1">
+          <dmn:text>"Willy Nilly"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_CEDDA1C2-2017-435D-BB71-2B7643FA9EE6">
+          <dmn:text>LookupDepartment(supplierName,product)</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmn:businessKnowledgeModel id="_B7FB89C9-48C0-4D79-BE60-57DE4A91D1F7" name="LookupDepartment">
+    <dmn:extensionElements/>
+    <dmn:variable id="_2FCDE9D8-8399-4124-9F34-706BBC7E99B6" name="LookupDepartment" typeRef="string"/>
+    <dmn:encapsulatedLogic id="_591B161D-958D-4BA5-9841-7DD95F1B88D1" kind="FEEL">
+      <dmn:formalParameter id="_1BCC290A-9E03-415E-8ACD-BA826D2C893A" name="supplierName" typeRef="string"/>
+      <dmn:formalParameter id="_A4CB45CD-E5C3-441D-9445-BD5B87DDEC80" name="product" typeRef="string"/>
+      <dmn:literalExpression id="_483606CA-45F2-4711-8999-D1E5B76C14A6">
+        <dmn:text>if matches(supplierName,"BasicHomeGoods") then BasicHomeGoods-IMPORT.BasicHomeGoods-Department-SERVICE(product) else if matches(supplierName,"TaipeiElectronic") then TaipeiElectronic-IMPORT.TaipeiElectronic-Department-SERVICE(product) else null</dmn:text>
+      </dmn:literalExpression>
+    </dmn:encapsulatedLogic>
+    <dmn:knowledgeRequirement id="_DFDDF17E-A5A1-4068-9A63-E32480EB6653">
+      <dmn:requiredKnowledge href="https://kiegroup.org/dmn/_3C091D67-E492-4647-A500-685D6925F568#_4E61F75D-C808-486C-A23C-5DFEAD1D053E"/>
+    </dmn:knowledgeRequirement>
+    <dmn:knowledgeRequirement id="_E4B8342B-6A74-4833-9F27-EBF0BFD91D5B">
+      <dmn:requiredKnowledge href="https://kiegroup.org/dmn/_7E929948-BCDC-4075-9631-0D1B3AD7E341#_AE9CB80A-4C12-4AE5-82B1-DFD07A30CC63"/>
+    </dmn:knowledgeRequirement>
+  </dmn:businessKnowledgeModel>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_11E7A615-5498-4F66-B1BF-DE946A8B2C8D" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_4CA102CE-14E6-4A49-98DF-C27BA92E6A27">
+            <kie:width>50</kie:width>
+            <kie:width>156</kie:width>
+            <kie:width>183</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>148</kie:width>
+            <kie:width>329</kie:width>
+            <kie:width>100</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_483606CA-45F2-4711-8999-D1E5B76C14A6">
+            <kie:width>951</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_591B161D-958D-4BA5-9841-7DD95F1B88D1">
+            <kie:width>50</kie:width>
+            <kie:width>951</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_4E61F75D-C808-486C-A23C-5DFEAD1D053E" dmnElementRef="included1:_4E61F75D-C808-486C-A23C-5DFEAD1D053E" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="116" y="372" width="435" height="150"/>
+        <dmndi:DMNLabel/>
+        <dmndi:DMNDecisionServiceDividerLine>
+          <di:waypoint x="116" y="472"/>
+          <di:waypoint x="551" y="472"/>
+        </dmndi:DMNDecisionServiceDividerLine>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_6EBAB512-5E79-4A38-9B04-DE1CE1178275" dmnElementRef="_6EBAB512-5E79-4A38-9B04-DE1CE1178275" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="211" y="96" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_D3F9DBE5-80D4-41D3-AF28-60B1BBDAF26E" dmnElementRef="_D3F9DBE5-80D4-41D3-AF28-60B1BBDAF26E" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="211" y="181" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_56A3953F-513C-4EAF-B0A8-0776ACD09A9E" dmnElementRef="_56A3953F-513C-4EAF-B0A8-0776ACD09A9E" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="429" y="139" width="150" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_B7FB89C9-48C0-4D79-BE60-57DE4A91D1F7" dmnElementRef="_B7FB89C9-48C0-4D79-BE60-57DE4A91D1F7" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="422" y="255.3421052631579" width="155" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_AE9CB80A-4C12-4AE5-82B1-DFD07A30CC63" dmnElementRef="included2:_AE9CB80A-4C12-4AE5-82B1-DFD07A30CC63" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="566" y="372" width="420" height="150"/>
+        <dmndi:DMNLabel/>
+        <dmndi:DMNDecisionServiceDividerLine>
+          <di:waypoint x="566" y="472"/>
+          <di:waypoint x="986" y="472"/>
+        </dmndi:DMNDecisionServiceDividerLine>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_C0371FE1-BE2C-4CCC-ACA4-3D3191DC6F9E" dmnElementRef="_C0371FE1-BE2C-4CCC-ACA4-3D3191DC6F9E">
+        <di:waypoint x="261" y="121"/>
+        <di:waypoint x="504" y="164"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_14C08C49-D992-4E50-91CF-CC0A06F22E7D-AUTO-TARGET" dmnElementRef="_14C08C49-D992-4E50-91CF-CC0A06F22E7D">
+        <di:waypoint x="261" y="206"/>
+        <di:waypoint x="429" y="164"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_0806C07D-2CBD-4682-A236-08B4D52E0B22" dmnElementRef="_0806C07D-2CBD-4682-A236-08B4D52E0B22">
+        <di:waypoint x="499.5" y="280.3421052631579"/>
+        <di:waypoint x="504" y="164"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_DFDDF17E-A5A1-4068-9A63-E32480EB6653-AUTO-TARGET" dmnElementRef="_DFDDF17E-A5A1-4068-9A63-E32480EB6653">
+        <di:waypoint x="333.5" y="447"/>
+        <di:waypoint x="499.5" y="305.3421052631579"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_E4B8342B-6A74-4833-9F27-EBF0BFD91D5B-AUTO-TARGET" dmnElementRef="_E4B8342B-6A74-4833-9F27-EBF0BFD91D5B">
+        <di:waypoint x="776" y="447"/>
+        <di:waypoint x="499.5" y="305.3421052631579"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>

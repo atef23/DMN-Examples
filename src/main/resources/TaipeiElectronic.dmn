@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_7E929948-BCDC-4075-9631-0D1B3AD7E341" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_1989B5EA-3A9E-4B64-BE41-8A841DE977E2" name="TaipeiElectronic" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_7E929948-BCDC-4075-9631-0D1B3AD7E341">
+  <dmn:extensionElements/>
+  <dmn:decisionService id="_AE9CB80A-4C12-4AE5-82B1-DFD07A30CC63" name="TaipeiElectronic-Department-SERVICE">
+    <dmn:extensionElements/>
+    <dmn:variable id="_10421BCC-B076-4A36-A3B1-8F83AC04E0AA" name="TaipeiElectronic-Department-SERVICE"/>
+    <dmn:outputDecision href="#_90A5F801-51F9-4AEA-BEEB-D9EF2263C327"/>
+    <dmn:inputData href="#_96AB23CF-5E0D-4352-9163-36B2660060E8"/>
+  </dmn:decisionService>
+  <dmn:inputData id="_96AB23CF-5E0D-4352-9163-36B2660060E8" name="product">
+    <dmn:extensionElements/>
+    <dmn:variable id="_75032439-EFF9-4EEC-8930-9EF15B53EB3D" name="product"/>
+  </dmn:inputData>
+  <dmn:decision id="_90A5F801-51F9-4AEA-BEEB-D9EF2263C327" name="TaipeiElectronic-Department">
+    <dmn:extensionElements/>
+    <dmn:variable id="_2D7AA1B6-B931-412B-9F74-4316707B03AD" name="TaipeiElectronic-Department"/>
+    <dmn:informationRequirement id="_6BCE8D26-9540-4CBD-9286-D46DFC420B51">
+      <dmn:requiredInput href="#_96AB23CF-5E0D-4352-9163-36B2660060E8"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_1B886789-9416-418D-94DB-B049AD752533" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_7058231F-A9C2-48C4-BB86-230050CB70EE">
+        <dmn:inputExpression id="_7703FC39-B47A-48C5-98CD-D10EDCB29FE3">
+          <dmn:text>product</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_97DFFA72-53A9-4B64-83F5-DF38322B760D"/>
+      <dmn:annotation name="annotation-1"/>
+      <dmn:rule id="_7134683B-2F37-44FE-9C3A-EEBA0C82000C">
+        <dmn:inputEntry id="_066DEC45-4965-4E8A-8C51-CDD59F495DBF">
+          <dmn:text>"IR Thermometer"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_AA22AC9D-A167-4942-9BD1-4E852E3EA8B7">
+          <dmn:text>"Healthcare Products"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_92EF8A9E-9B28-41D2-91E9-9D1369E815A0">
+        <dmn:inputEntry id="_F8B5C55E-FE2C-4A6E-B4D4-02BDEC321776">
+          <dmn:text>"Lightning Fast Charger"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_7E413684-910F-45F3-8F60-CACFED824121">
+          <dmn:text>"Phone Accessories"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_DA296109-DADC-4DF4-AB11-D2F4784CB70C">
+        <dmn:inputEntry id="_3FD5324A-452F-4D0B-848A-AA5E18D8C2BC">
+          <dmn:text>"Wireless Earbud Model 8234"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_426BAB88-52C4-481A-8C0E-C4A9095E4778">
+          <dmn:text>"Personal Electronics"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_54BFC428-189D-4B42-BCC0-AF4C0A20435B">
+        <dmn:inputEntry id="_D68F6E3C-DFCD-48A7-A8FF-A560939E4E9B">
+          <dmn:text>"USB Hub 9270"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_D19727BA-1BED-4A57-AC70-1203D2BB6587">
+          <dmn:text>"Computer Accessories"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_A7C949E3-C071-47C6-A8A1-004D0350AAEE">
+        <dmn:inputEntry id="_0CFB104C-005A-470C-B98C-9B3EDD6D7406">
+          <dmn:text>"Bluetooth Speaker Small - Blue"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_5D7E8AE6-90AA-4D6F-B364-E3F5BC605653">
+          <dmn:text>"Personal Electronics"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_EC2AF5F1-FFDD-44D8-A281-CCA1500A5575">
+        <dmn:inputEntry id="_3C413539-4BCF-4ABD-90F0-574BE68C6A1C">
+          <dmn:text>"Laptop Cooling Pad"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_9FBDD923-7293-43C8-8F29-C9D0F81D839F">
+          <dmn:text>"Computer Accessories"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_5D32B211-6DC0-43E5-A331-E684191B34D8">
+        <dmn:inputEntry id="_555B3A95-7422-48D2-ABFE-DCECFB9E6D77">
+          <dmn:text>"Small Power Bank"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_4C7D7AFF-5C14-4960-B65E-65541A841024">
+          <dmn:text>"Checkout Aisle"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_6B47298B-B9E3-4213-B4A1-2C9F26BCFD5F" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_1B886789-9416-418D-94DB-B049AD752533">
+            <kie:width>50</kie:width>
+            <kie:width>170</kie:width>
+            <kie:width>199</kie:width>
+            <kie:width>100</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_AE9CB80A-4C12-4AE5-82B1-DFD07A30CC63" dmnElementRef="_AE9CB80A-4C12-4AE5-82B1-DFD07A30CC63" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="335" y="161" width="282" height="220"/>
+        <dmndi:DMNLabel/>
+        <dmndi:DMNDecisionServiceDividerLine>
+          <di:waypoint x="335" y="261"/>
+          <di:waypoint x="617" y="261"/>
+        </dmndi:DMNDecisionServiceDividerLine>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_96AB23CF-5E0D-4352-9163-36B2660060E8" dmnElementRef="_96AB23CF-5E0D-4352-9163-36B2660060E8" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="198" y="102" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_90A5F801-51F9-4AEA-BEEB-D9EF2263C327" dmnElementRef="_90A5F801-51F9-4AEA-BEEB-D9EF2263C327" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="384" y="203" width="183" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_6BCE8D26-9540-4CBD-9286-D46DFC420B51-AUTO-TARGET" dmnElementRef="_6BCE8D26-9540-4CBD-9286-D46DFC420B51">
+        <di:waypoint x="248" y="127"/>
+        <di:waypoint x="475.5" y="203"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>

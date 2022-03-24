@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_5D1860DD-6D81-4FED-81D7-D194FF5E9069" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_F709B914-1547-461F-807F-F7B1DB42235B" name="festival-processing" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_5D1860DD-6D81-4FED-81D7-D194FF5E9069">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_EC0A048B-BE7F-446C-82ED-1C9D457D7ACC" name="Festival" isCollection="false">
+    <dmn:itemComponent id="_F838290A-121E-42CC-A4BB-45098B20A1A6" name="ID" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_D7D3696A-1573-4871-992E-B58F478DB5B3" name="type" isCollection="false">
+      <dmn:typeRef>FestivalType</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_DD213A9D-F40D-4907-A6A3-021C367EC190" name="festivalShows" isCollection="true">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_7B2FC10D-B16E-4D83-B761-605A6DE63D8C" name="events" isCollection="true">
+      <dmn:typeRef>Event</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_FD31B637-94B8-4A44-81DC-FC6AEB580F49" name="festivalSize" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_8D93DC49-FDAF-4B6C-B5E8-04053AFD1291" name="Event" isCollection="false">
+    <dmn:itemComponent id="_BD5DB2F0-8C49-47C1-AF43-2EC4BF332078" name="eventID" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_6FBADCFD-8E9D-44B7-A0B0-E24054A8181F" name="price" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_632B0BEE-B8D5-4A9D-A3C9-D637255F3E5E" name="show" isCollection="false">
+      <dmn:typeRef>ShowType</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_6D0CBBB3-8C11-4058-8A1E-B35BF73DDB15" name="eventEntry" isCollection="false">
+      <dmn:typeRef>EventPriceType</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_D1307BEE-8F99-4152-9112-B071BBF83E5C" name="FestivalType" isCollection="false">
+    <dmn:typeRef>string</dmn:typeRef>
+    <dmn:allowedValues kie:constraintType="enumeration" id="_A4B394F1-B08E-4743-AAE6-E56AD8E32BC5">
+      <dmn:text>"Multi-Event", "Single-Event"</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_E1587DE1-6E6A-4B23-B0F5-1B65FF6996EA" name="EventPriceType" isCollection="false">
+    <dmn:typeRef>string</dmn:typeRef>
+    <dmn:allowedValues kie:constraintType="enumeration" id="_ACCAF1C8-4471-46D7-89CA-940FCA9B3FF6">
+      <dmn:text>"Paid", "Free", "Free-to-Enter"</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_F38C068F-31CC-492B-A600-E7ADD8EC9B69" name="ShowType" isCollection="false">
+    <dmn:typeRef>string</dmn:typeRef>
+    <dmn:allowedValues kie:constraintType="enumeration" id="_CEF28D80-BA9D-4699-9D8A-2B2DEB60E565">
+      <dmn:text>"Concert", "Film", "Comedy"</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_7CCE5545-7EC9-448C-A3F4-907D0BC55B70" name="eventsValue" isCollection="true">
+    <dmn:typeRef>number</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_9C0B5A25-C733-4585-BAE0-1094A24C5DE5" name="Festival">
+    <dmn:extensionElements/>
+    <dmn:variable id="_083561B8-4E81-4D6B-B40F-C404A41CC1E1" name="Festival" typeRef="Festival"/>
+  </dmn:inputData>
+  <dmn:decision id="_B0FB1B2D-7020-49AE-AC63-233402A40A98" name="Festival.type">
+    <dmn:extensionElements/>
+    <dmn:variable id="_0E0C6C4C-4DE0-46DA-9583-6AE0D02A9868" name="Festival.type" typeRef="FestivalType"/>
+    <dmn:informationRequirement id="_59207013-8C2B-4014-8F44-EFEE71EECBAE">
+      <dmn:requiredInput href="#_9C0B5A25-C733-4585-BAE0-1094A24C5DE5"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_F7E14597-381D-4346-AF2B-AAEB80293FB5" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_4E3BE246-AB14-4723-A348-034FD3BDD202">
+        <dmn:inputExpression id="_70491D67-C1C5-4691-BA1E-ED03E31846D8" typeRef="Event">
+          <dmn:text>Festival.events</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_619123D6-5126-4C4E-BA0B-1BBDF3A275E9"/>
+      <dmn:annotation name="annotation-1"/>
+      <dmn:rule id="_287D214B-6108-4CB8-9B6E-8074DE94357B">
+        <dmn:inputEntry id="_D08587CD-4543-4DE9-AE21-CE03DCDA7B04">
+          <dmn:text>count(?) &gt; 1</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_2FBE5C9E-170F-4F86-BA62-B72D8803197B">
+          <dmn:text>"Multi-Event"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_9704B992-0440-4C1E-8CAA-2E845518A011">
+        <dmn:inputEntry id="_51EA2A0B-2FF2-4247-ACAC-24CF3063440E">
+          <dmn:text>not(count(?) &gt; 1)</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_01836EC3-97E1-4564-9703-D9BCC4ACFB6F">
+          <dmn:text>"Single-Event"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmn:businessKnowledgeModel id="_358998DE-D733-49EE-A638-F423817D9974" name="appendShows">
+    <dmn:extensionElements/>
+    <dmn:variable id="_BDAB5735-C871-40DE-93A4-3A96C4910672" name="appendShows"/>
+    <dmn:encapsulatedLogic id="_D3483FB2-49BE-40D3-AA0E-30737654EEFE" kind="FEEL">
+      <dmn:formalParameter id="_A6E7269D-8D05-4153-A967-6CB1AC7BC08F" name="show" typeRef="string"/>
+      <dmn:formalParameter id="_9423518B-CC2D-4484-A3C2-6730137B4FBC" name="festivalShows" typeRef="string"/>
+      <dmn:literalExpression id="_60690701-BCE1-4E52-805C-35C4DA4D4866">
+        <dmn:text>append(festivalShows, show)</dmn:text>
+      </dmn:literalExpression>
+    </dmn:encapsulatedLogic>
+  </dmn:businessKnowledgeModel>
+  <dmn:decision id="_73D74E2D-8E1F-4EC3-A4F3-6D6CC3469161" name="Festival.festivalShows">
+    <dmn:extensionElements/>
+    <dmn:variable id="_2F06A1E4-56CE-41BF-B907-AEB26EECD0C8" name="Festival.festivalShows"/>
+    <dmn:informationRequirement id="_4E170165-920B-48C7-B6D4-E264B07D0E32">
+      <dmn:requiredInput href="#_9C0B5A25-C733-4585-BAE0-1094A24C5DE5"/>
+    </dmn:informationRequirement>
+    <dmn:knowledgeRequirement id="_E66E631F-E338-410D-B6E7-0C656B0B3A95">
+      <dmn:requiredKnowledge href="#_358998DE-D733-49EE-A638-F423817D9974"/>
+    </dmn:knowledgeRequirement>
+    <dmn:literalExpression id="_550898FC-930A-46C2-9975-13ACF59C686C">
+      <dmn:text>for event in Festival.events return appendShows(event.show, Festival.festivalShows)</dmn:text>
+    </dmn:literalExpression>
+  </dmn:decision>
+  <dmn:decision id="_D1B985F6-778C-4561-A566-B744D9CC16CC" name="Festival.festivalSize">
+    <dmn:extensionElements/>
+    <dmn:variable id="_0009852D-AD5D-49A3-A5D4-1AABE3F1C907" name="Festival.festivalSize" typeRef="string"/>
+    <dmn:informationRequirement id="_E774281D-32C0-410C-912B-ED02FA78AA20">
+      <dmn:requiredInput href="#_9C0B5A25-C733-4585-BAE0-1094A24C5DE5"/>
+    </dmn:informationRequirement>
+    <dmn:context id="_AD56954B-9B41-4D65-833B-4C06BDDB86B0">
+      <dmn:contextEntry>
+        <dmn:variable id="_7EFACEA2-257F-4EAD-AEE1-E32CC008A428" name="Event Prices Value List" typeRef="eventsValue"/>
+        <dmn:literalExpression id="_E19FC7E9-9C37-47E9-B4AD-3927E04D1CC3">
+          <dmn:text>Festival.events[EventPriceType = "Paid"].price</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_36F77F95-7C51-4A22-BDE4-3FBDF008A943" name="Event Prices Total" typeRef="number"/>
+        <dmn:literalExpression id="_A2844A80-F326-4FCD-BCE1-90BF8A603325">
+          <dmn:text>sum(Event Prices Value List)</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:literalExpression id="_577C7DFC-631C-4BD5-B7B8-C67DEE0C47CF">
+          <dmn:text>if Event Prices Total &gt; 1000 then "BIG_FESTIVAL" else "MINI_FIESTA"</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+    </dmn:context>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_93C4154C-99F7-4C57-BE75-70E5A86C133D" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_F7E14597-381D-4346-AF2B-AAEB80293FB5">
+            <kie:width>50</kie:width>
+            <kie:width>688</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>500</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_60690701-BCE1-4E52-805C-35C4DA4D4866">
+            <kie:width>876</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_D3483FB2-49BE-40D3-AA0E-30737654EEFE">
+            <kie:width>50</kie:width>
+            <kie:width>876</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_550898FC-930A-46C2-9975-13ACF59C686C">
+            <kie:width>787</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_AD56954B-9B41-4D65-833B-4C06BDDB86B0">
+            <kie:width>50</kie:width>
+            <kie:width>200</kie:width>
+            <kie:width>646</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_E19FC7E9-9C37-47E9-B4AD-3927E04D1CC3">
+            <kie:width>646</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_A2844A80-F326-4FCD-BCE1-90BF8A603325">
+            <kie:width>646</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_577C7DFC-631C-4BD5-B7B8-C67DEE0C47CF">
+            <kie:width>646</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_9C0B5A25-C733-4585-BAE0-1094A24C5DE5" dmnElementRef="_9C0B5A25-C733-4585-BAE0-1094A24C5DE5" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="135" y="128" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_B0FB1B2D-7020-49AE-AC63-233402A40A98" dmnElementRef="_B0FB1B2D-7020-49AE-AC63-233402A40A98" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="377" y="129" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_358998DE-D733-49EE-A638-F423817D9974" dmnElementRef="_358998DE-D733-49EE-A638-F423817D9974" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="195" y="373" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_73D74E2D-8E1F-4EC3-A4F3-6D6CC3469161" dmnElementRef="_73D74E2D-8E1F-4EC3-A4F3-6D6CC3469161" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="195" y="274" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_D1B985F6-778C-4561-A566-B744D9CC16CC" dmnElementRef="_D1B985F6-778C-4561-A566-B744D9CC16CC" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="377" y="274" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_59207013-8C2B-4014-8F44-EFEE71EECBAE-AUTO-SOURCE-AUTO-TARGET" dmnElementRef="_59207013-8C2B-4014-8F44-EFEE71EECBAE">
+        <di:waypoint x="235" y="153"/>
+        <di:waypoint x="377" y="154"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_4E170165-920B-48C7-B6D4-E264B07D0E32-AUTO-SOURCE-AUTO-TARGET" dmnElementRef="_4E170165-920B-48C7-B6D4-E264B07D0E32">
+        <di:waypoint x="185" y="178"/>
+        <di:waypoint x="245" y="274"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_E66E631F-E338-410D-B6E7-0C656B0B3A95" dmnElementRef="_E66E631F-E338-410D-B6E7-0C656B0B3A95">
+        <di:waypoint x="245" y="398"/>
+        <di:waypoint x="245" y="299"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_E774281D-32C0-410C-912B-ED02FA78AA20-AUTO-SOURCE-AUTO-TARGET" dmnElementRef="_E774281D-32C0-410C-912B-ED02FA78AA20">
+        <di:waypoint x="185" y="178"/>
+        <di:waypoint x="211" y="178"/>
+        <di:waypoint x="427" y="274"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>

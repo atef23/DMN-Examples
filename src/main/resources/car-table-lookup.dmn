@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_A1A88640-63FA-4769-B200-335F1D50286D" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_D592DE08-6425-4FB4-B7BB-A9EB34CC50E1" name="car-table-lookup" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_A1A88640-63FA-4769-B200-335F1D50286D">
+  <dmn:description>Allows for the lookup of a driver based on a predefined list</dmn:description>
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_A880E145-17F9-4BDA-8AA9-57A9A928252B" name="Vehicle" isCollection="false">
+    <dmn:itemComponent id="_DF097B24-2B09-40EF-9281-C198D0B6B271" name="class" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_C405D08A-675F-434F-89A3-76C9B6455374" name="make" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_B9C64068-FB43-4F88-8D2E-35905B1D2717" name="model" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_5EF8284C-9158-4092-83C9-5B33900D4B77" name="status" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_D183978B-3C82-4409-B15D-4EF83EFED592" name="driver">
+    <dmn:extensionElements/>
+    <dmn:variable id="_811052BD-3F27-4013-B0FF-AE8C658F8072" name="driver"/>
+  </dmn:inputData>
+  <dmn:decision id="_6B57BBB2-A7B3-421A-9F75-B3808514899D" name="DriversAssignedToCamry">
+    <dmn:extensionElements/>
+    <dmn:variable id="_5FFB59EC-72DB-4F33-8D72-5829D1EF844A" name="DriversAssignedToCamry"/>
+    <dmn:list id="_5CE3B87E-140F-4131-800D-01F134852C9D">
+      <dmn:literalExpression id="_C89D4805-E166-4A74-9637-0CD686204AAA">
+        <dmn:text>"John Smith"</dmn:text>
+      </dmn:literalExpression>
+      <dmn:literalExpression id="_D3F9D555-7F40-4BC8-806E-142F36F0BA6F">
+        <dmn:text>"Smith Paul"</dmn:text>
+      </dmn:literalExpression>
+      <dmn:literalExpression id="_D2B1C682-CA6D-4DF7-9F9C-47E8A1A60E7A">
+        <dmn:text>"Joe Who"</dmn:text>
+      </dmn:literalExpression>
+      <dmn:literalExpression id="_2FA026EF-0327-43A7-AD13-FA504B6871AE">
+        <dmn:text>"Mary Bary"</dmn:text>
+      </dmn:literalExpression>
+      <dmn:literalExpression id="_BB274112-8FD1-4453-AA62-5B3B07941CCE">
+        <dmn:text>"Kent Flent"</dmn:text>
+      </dmn:literalExpression>
+      <dmn:literalExpression id="_CB8E38AA-1BFE-4251-9DF8-F991E03DF9AF">
+        <dmn:text>"Mark Lark"</dmn:text>
+      </dmn:literalExpression>
+      <dmn:literalExpression id="_B85A7015-AAA2-474B-8E06-A66379150E67">
+        <dmn:text>"Jermain Permain"</dmn:text>
+      </dmn:literalExpression>
+      <dmn:literalExpression id="_4C724627-3E12-45EE-8333-EF4B47D4AA23">
+        <dmn:text>"Roger Boger"</dmn:text>
+      </dmn:literalExpression>
+    </dmn:list>
+  </dmn:decision>
+  <dmn:decision id="_4BDBBCD0-BEB9-4803-9FA6-37A59BB0F9A0" name="vehicle">
+    <dmn:extensionElements/>
+    <dmn:variable id="_9E45C8F1-6AF4-4ACD-81BC-BA8A9E05EDB8" name="vehicle" typeRef="Vehicle"/>
+    <dmn:informationRequirement id="_A6121EC7-434C-499D-BE93-3079C48E034A">
+      <dmn:requiredInput href="#_D183978B-3C82-4409-B15D-4EF83EFED592"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_C715709D-D7C8-4D07-AA92-66F6CFBA7EB0">
+      <dmn:requiredDecision href="#_6B57BBB2-A7B3-421A-9F75-B3808514899D"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_2ECC7092-BDC2-4692-93D5-D8C30F661890">
+      <dmn:requiredDecision href="#_1C373AC1-E780-41D5-9155-0718E4B4F86E"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_C8B22253-03EC-4301-92BD-E2A9F2D1753F" hitPolicy="FIRST" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_26F87626-125D-41A3-AAEB-E5AD68837647">
+        <dmn:inputExpression id="_CA6A2647-B86B-4524-A411-87360BA89975">
+          <dmn:text>DriversAssignedToCamry</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_B04B5C7A-F462-41B6-BFF6-266DF7897388">
+        <dmn:inputExpression id="_5BB66CBD-E826-41EC-B518-4DA53A2A5CB8">
+          <dmn:text>DriversAssignedToF150</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_50490979-ECF7-42AC-917A-6B7C5F695D44">
+        <dmn:inputExpression id="_B63064D7-F4E3-4B98-B145-C696FB9974A5" typeRef="string">
+          <dmn:text>driver</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_AEB7C8CF-244E-4D9E-ACF3-2D7682390B59" name="class" typeRef="string"/>
+      <dmn:output id="_3B64F031-E980-4AA6-BFFC-9EA5F8BBFEDB" name="make" typeRef="string"/>
+      <dmn:output id="_82E5E5DA-1D7B-43CC-8B64-0AC9C2A5FA6D" name="model" typeRef="string"/>
+      <dmn:output id="_4CC1EBAD-B5C8-4F0D-A2C6-1D32D1402C64" name="status" typeRef="string"/>
+      <dmn:annotation name="annotation-2"/>
+      <dmn:rule id="_4592DFD7-F180-4AC9-A04D-A6324CEB0F70">
+        <dmn:inputEntry id="_F95F3493-F46C-4A41-B45D-AE5E3A8E5EC9">
+          <dmn:text>list contains (?,driver)</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_72729477-37AF-48C1-A882-CFF10693F21D">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_E70F6C7C-F8AE-4D91-AEBE-D9928E3C9C85">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_AB02A791-62DC-4F2F-BC7E-20287D005FA5">
+          <dmn:text>"PASSENGER"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_4A6DAE3E-FAAB-4F84-8BF2-829A253AD406">
+          <dmn:text>"TOYOTA"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_FE1D88E3-945B-4C81-AB72-B6BE8EC9340F">
+          <dmn:text>"CAMRY"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_CE3DB870-7FD6-4CC2-AFBD-FF63C4EC6F0C">
+          <dmn:text>"ASSIGNED"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_D3AC1853-E05A-48C6-95CC-038E27B9724B">
+        <dmn:inputEntry id="_EA9848E5-40AC-4772-9C30-833F1AC3CDCD">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_82A470E7-19A7-4645-912D-1D5DA62B0EB6">
+          <dmn:text>list contains (?,driver)</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_6658DBE6-2F36-4BCB-83CE-D02C984644F0">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_913B809A-FA81-4B7E-BE3C-666365F9267B">
+          <dmn:text>"PASSENGER"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_FC9F8A13-F156-48A3-B920-AAECC69C6B62">
+          <dmn:text>"FORD"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_45E65CA9-27F5-4578-800E-69945BA42CE0">
+          <dmn:text>"F150"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_011E1EBF-2789-463C-99EB-D5BA34997F67">
+          <dmn:text>"ASSIGNED"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_5889C180-0B8F-44C3-93C3-296041260F24">
+        <dmn:inputEntry id="_A3744EB3-66D0-455B-A267-141D7F2AB0A4">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_C8A48027-8E3F-41E7-A24D-A11E052A21AA">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_AF46F563-8AA5-4F18-8FCF-49963A919886">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_0C56B04D-B4E2-4629-B0DA-C6A14FEFDE30">
+          <dmn:text>"N/A"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_AF69A287-053E-4F17-B78A-165763F4DDD7">
+          <dmn:text>"N/A"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_144B3BEB-12FD-4B53-B7EA-12A92BA5E84B">
+          <dmn:text>"N/A"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_A30AEF37-40DB-47AE-8700-6E2CFB725209">
+          <dmn:text>"N/A"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmn:decision id="_1C373AC1-E780-41D5-9155-0718E4B4F86E" name="DriversAssignedToF150">
+    <dmn:extensionElements/>
+    <dmn:variable id="_F02177D1-60B3-4CDD-8260-700DC817CC90" name="DriversAssignedToF150"/>
+    <dmn:list id="_96E806FB-4219-4BCD-B76B-C97CB5CBCEFD">
+      <dmn:literalExpression id="_3EA8CE4A-F77C-4F0C-B2C6-361D40D255AB">
+        <dmn:text>"Kenny Jones"</dmn:text>
+      </dmn:literalExpression>
+      <dmn:literalExpression id="_4C898ED6-63F5-45C2-9B86-17EAC21499DA">
+        <dmn:text>"Millie Paul"</dmn:text>
+      </dmn:literalExpression>
+      <dmn:literalExpression id="_BECE23AF-9652-420E-B7F4-17D0D50BF7EC">
+        <dmn:text>"Kareem Thomas"</dmn:text>
+      </dmn:literalExpression>
+      <dmn:literalExpression id="_966D0DBD-36C2-4E56-A1B8-117FC0DEE795">
+        <dmn:text>"Creon"</dmn:text>
+      </dmn:literalExpression>
+      <dmn:literalExpression id="_440F31EB-27C2-4FDF-98E0-FABF30DB3553">
+        <dmn:text>"Antigone"</dmn:text>
+      </dmn:literalExpression>
+      <dmn:literalExpression id="_8FA6E8CE-8BA5-4D60-B57C-1103E45B5BF3">
+        <dmn:text>"Ismene"</dmn:text>
+      </dmn:literalExpression>
+      <dmn:literalExpression id="_3D3F897F-C88E-46BE-8E37-3C2D2729C30A">
+        <dmn:text>"Hadrian"</dmn:text>
+      </dmn:literalExpression>
+      <dmn:literalExpression id="_B79275DD-9821-4BF3-B2C4-824B1606593C">
+        <dmn:text>"Nero"</dmn:text>
+      </dmn:literalExpression>
+    </dmn:list>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_8C462BAD-0FBB-4ED8-8E44-DB8988735DD9" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_5CE3B87E-140F-4131-800D-01F134852C9D">
+            <kie:width>50</kie:width>
+            <kie:width>200</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C89D4805-E166-4A74-9637-0CD686204AAA">
+            <kie:width>200</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_D3F9D555-7F40-4BC8-806E-142F36F0BA6F">
+            <kie:width>200</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_D2B1C682-CA6D-4DF7-9F9C-47E8A1A60E7A">
+            <kie:width>200</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_2FA026EF-0327-43A7-AD13-FA504B6871AE">
+            <kie:width>200</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_BB274112-8FD1-4453-AA62-5B3B07941CCE">
+            <kie:width>200</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_CB8E38AA-1BFE-4251-9DF8-F991E03DF9AF">
+            <kie:width>200</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B85A7015-AAA2-474B-8E06-A66379150E67">
+            <kie:width>200</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_4C724627-3E12-45EE-8333-EF4B47D4AA23">
+            <kie:width>200</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C8B22253-03EC-4301-92BD-E2A9F2D1753F">
+            <kie:width>50</kie:width>
+            <kie:width>239</kie:width>
+            <kie:width>211</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_96E806FB-4219-4BCD-B76B-C97CB5CBCEFD">
+            <kie:width>50</kie:width>
+            <kie:width>200</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_3EA8CE4A-F77C-4F0C-B2C6-361D40D255AB">
+            <kie:width>200</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_4C898ED6-63F5-45C2-9B86-17EAC21499DA">
+            <kie:width>200</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_BECE23AF-9652-420E-B7F4-17D0D50BF7EC">
+            <kie:width>200</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_966D0DBD-36C2-4E56-A1B8-117FC0DEE795">
+            <kie:width>200</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_440F31EB-27C2-4FDF-98E0-FABF30DB3553">
+            <kie:width>200</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_8FA6E8CE-8BA5-4D60-B57C-1103E45B5BF3">
+            <kie:width>200</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_3D3F897F-C88E-46BE-8E37-3C2D2729C30A">
+            <kie:width>200</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B79275DD-9821-4BF3-B2C4-824B1606593C">
+            <kie:width>200</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_D183978B-3C82-4409-B15D-4EF83EFED592" dmnElementRef="_D183978B-3C82-4409-B15D-4EF83EFED592" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="155" y="78.68421052631578" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_6B57BBB2-A7B3-421A-9F75-B3808514899D" dmnElementRef="_6B57BBB2-A7B3-421A-9F75-B3808514899D" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="156" y="192" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_4BDBBCD0-BEB9-4803-9FA6-37A59BB0F9A0" dmnElementRef="_4BDBBCD0-BEB9-4803-9FA6-37A59BB0F9A0" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="354" y="136" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_1C373AC1-E780-41D5-9155-0718E4B4F86E" dmnElementRef="_1C373AC1-E780-41D5-9155-0718E4B4F86E" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="155" y="286" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_A6121EC7-434C-499D-BE93-3079C48E034A" dmnElementRef="_A6121EC7-434C-499D-BE93-3079C48E034A">
+        <di:waypoint x="255" y="103.68421052631578"/>
+        <di:waypoint x="354" y="161"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_C715709D-D7C8-4D07-AA92-66F6CFBA7EB0" dmnElementRef="_C715709D-D7C8-4D07-AA92-66F6CFBA7EB0">
+        <di:waypoint x="206" y="217"/>
+        <di:waypoint x="404" y="186"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_2ECC7092-BDC2-4692-93D5-D8C30F661890-AUTO-TARGET" dmnElementRef="_2ECC7092-BDC2-4692-93D5-D8C30F661890">
+        <di:waypoint x="205" y="311"/>
+        <di:waypoint x="404" y="186"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>

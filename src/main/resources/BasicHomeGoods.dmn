@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_3C091D67-E492-4647-A500-685D6925F568" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_B8402467-34DF-4FA8-B893-D898493E3C35" name="BasicHomeGoods" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_3C091D67-E492-4647-A500-685D6925F568">
+  <dmn:extensionElements/>
+  <dmn:decisionService id="_4E61F75D-C808-486C-A23C-5DFEAD1D053E" name="BasicHomeGoods-Department-SERVICE">
+    <dmn:extensionElements/>
+    <dmn:variable id="_5EE2F55A-604B-4635-B61D-563D30424B22" name="BasicHomeGoods-Department-SERVICE"/>
+    <dmn:outputDecision href="#_2BC2D406-B979-4EAE-BECE-E449B603D310"/>
+    <dmn:inputData href="#_380E3DE0-D67D-4476-96D5-C667458211F0"/>
+  </dmn:decisionService>
+  <dmn:inputData id="_380E3DE0-D67D-4476-96D5-C667458211F0" name="product">
+    <dmn:extensionElements/>
+    <dmn:variable id="_D30EB104-53B6-4FBA-A372-286397A87F3A" name="product"/>
+  </dmn:inputData>
+  <dmn:decision id="_2BC2D406-B979-4EAE-BECE-E449B603D310" name="basicHomeGoods-Department">
+    <dmn:extensionElements/>
+    <dmn:variable id="_360C7869-28C3-454D-81ED-1C3BDC0AF308" name="basicHomeGoods-Department"/>
+    <dmn:informationRequirement id="_7E76AA82-358D-46AE-B8BB-2ABC1C0409B3">
+      <dmn:requiredInput href="#_380E3DE0-D67D-4476-96D5-C667458211F0"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_B580502D-FAC1-42EA-B156-C95FFFBF4321" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_064A0ADD-297F-4AC9-9FF3-647A376C9B07">
+        <dmn:inputExpression id="_626B6CAA-FFF2-4C63-8F89-9F3C027C4C92">
+          <dmn:text>product</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_C20825D1-0190-4FC8-A856-30158836C225"/>
+      <dmn:annotation name="annotation-1"/>
+      <dmn:rule id="_1A5A3EDF-2227-4B80-BB22-859E3E3CC2E5">
+        <dmn:inputEntry id="_A1E0B9B1-4E2A-4291-9088-5B767FD32F10">
+          <dmn:text>"Gooseneck Kettle"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_8F878D40-4136-40F2-9CEE-931C5950BDB6">
+          <dmn:text>"Kitchen Appliances"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_934BEBE3-D355-4054-A277-D27AAAE2D22E">
+        <dmn:inputEntry id="_00E4390B-CCF7-4DA3-BDE0-03F45716B6B4">
+          <dmn:text>"Polyester Thread 84730"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_7E959C18-5ECC-498E-A618-C6A10A100B24">
+          <dmn:text>"Sewing"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_C8ED08E2-F536-4A33-BF50-CFFA8B1CD696">
+        <dmn:inputEntry id="_7C7AF0E3-9741-4641-A7DE-C78B3C29963C">
+          <dmn:text>"Sewing Needles Small SS-2335"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_AAF28047-774C-4867-89F5-F1BC9A721172">
+          <dmn:text>"Sewing"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_8DF46750-6E13-4C49-9DFF-E02E6DE5F46F" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_B580502D-FAC1-42EA-B156-C95FFFBF4321">
+            <kie:width>50</kie:width>
+            <kie:width>196</kie:width>
+            <kie:width>186</kie:width>
+            <kie:width>100</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_4E61F75D-C808-486C-A23C-5DFEAD1D053E" dmnElementRef="_4E61F75D-C808-486C-A23C-5DFEAD1D053E" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="308" y="150" width="269" height="220"/>
+        <dmndi:DMNLabel/>
+        <dmndi:DMNDecisionServiceDividerLine>
+          <di:waypoint x="308" y="250"/>
+          <di:waypoint x="577" y="250"/>
+        </dmndi:DMNDecisionServiceDividerLine>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_380E3DE0-D67D-4476-96D5-C667458211F0" dmnElementRef="_380E3DE0-D67D-4476-96D5-C667458211F0" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="178" y="93" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_2BC2D406-B979-4EAE-BECE-E449B603D310" dmnElementRef="_2BC2D406-B979-4EAE-BECE-E449B603D310" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="343" y="191" width="200" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_7E76AA82-358D-46AE-B8BB-2ABC1C0409B3-AUTO-TARGET" dmnElementRef="_7E76AA82-358D-46AE-B8BB-2ABC1C0409B3">
+        <di:waypoint x="228" y="118"/>
+        <di:waypoint x="443" y="191"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>

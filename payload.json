@@ -1,0 +1,93 @@
+http://localhost:8080/q/swagger-ui/#/Collections%20Resource/post_collections
+
+
+{
+    "Festival": {
+      "ID": "MEGAPALOOZA",
+      "type": "Multi-Event",
+      "festivalShows": [
+      ],
+      "events": [
+        {
+          "eventID": "123849",
+          "price": 50,
+          "show": "Concert",
+          "eventEntry": "Paid"
+        },
+        {
+            "eventID": "832479",
+            "price": 200,
+            "show": "Concert",
+            "eventEntry": "Paid"
+          },
+          {
+            "eventID": "923795",
+            "price": 50,
+            "show": "Comedy",
+            "eventEntry": "Paid"
+          },
+          {
+            "eventID": "001833",
+            "price": 350,
+            "show": "Concert",
+            "eventEntry": "Paid"
+          },
+          {
+            "eventID": "827495",
+            "price": 10,
+            "show": "Film",
+            "eventEntry": "Paid"
+          },
+          {
+            "eventID": "992749",
+            "price": 100,
+            "show": "Film",
+            "eventEntry": "Paid"
+          },
+          {
+            "eventID": "773654",
+            "price": 0,
+            "show": "Concert",
+            "eventEntry": "Free"
+          },
+          {
+            "eventID": "992834",
+            "price": 0,
+            "show": "Film",
+            "eventEntry": "Free"
+          }
+      ],
+      "festivalSize": [
+        "string"
+      ]
+    }
+  }
+
+
+
+
+
+
+
+
+
+  http://localhost:8080/q/swagger-ui/#/Car%20_45table%20_45lookup%20Resource/post_car_table_lookup
+
+  {
+    "driver": "Nero"
+  }
+
+
+
+
+
+
+
+
+
+  http://localhost:8080/q/swagger-ui/#/Department%20Assignments%20Resource/post_departmentAssignments
+
+  {
+    "supplierName": "TaipeiElectronic",
+    "product": "IR Thermometer"
+  }

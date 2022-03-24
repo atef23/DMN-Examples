@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_C83463E3-99C5-46E0-BA0F-D2CD079B5516" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_4A1C269C-7EC8-42E6-B130-8497F3C8CBC5" name="car-process-master" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_C83463E3-99C5-46E0-BA0F-D2CD079B5516">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_CC7790BE-E34A-4B35-A3FC-C23DDA2FDF1B" name="Vehicle" isCollection="false">
+    <dmn:itemComponent id="_14204780-8E1A-43C1-B9AD-ACC42CEC56D0" name="class" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_69BF60C7-ECF5-4687-8C02-F401A403AC1F" name="make" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_06F48D59-5D91-42CF-96CE-B9DBB6F6C419" name="model" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_4C89672B-420E-4436-BBC5-64577A69BA5A" name="status" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_27A801F1-A4B4-4596-AB4F-2327557D066F" name="action" isCollection="false">
+    <dmn:typeRef>string</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_577EC853-35A5-4CFF-AE2A-4F1607F6E1B3" name="state">
+    <dmn:extensionElements/>
+    <dmn:variable id="_0630EE5C-6850-4BD0-B554-2AAB9DE7FABE" name="state" typeRef="string"/>
+  </dmn:inputData>
+  <dmn:inputData id="_B49EF234-C4AA-4C53-853A-4B38CED77232" name="insurer">
+    <dmn:extensionElements/>
+    <dmn:variable id="_FBF76375-CD53-4823-952E-B960890671B7" name="insurer" typeRef="string"/>
+  </dmn:inputData>
+  <dmn:inputData id="_7C19D579-D9EB-4CB3-A24F-023361118FC8" name="owner">
+    <dmn:extensionElements/>
+    <dmn:variable id="_E1B93AFB-8C6E-484D-9172-D86F0147547F" name="owner" typeRef="string"/>
+  </dmn:inputData>
+  <dmn:decision id="_DC923692-72C5-40D5-9BB6-1C286E37E09C" name="vehicle">
+    <dmn:extensionElements/>
+    <dmn:variable id="_623BA3DF-3D24-4DB4-BC1F-C8CC169A0009" name="vehicle" typeRef="Vehicle"/>
+    <dmn:informationRequirement id="_2B532C7A-F12C-4C2B-BD24-B71032EA3919">
+      <dmn:requiredInput href="#_577EC853-35A5-4CFF-AE2A-4F1607F6E1B3"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_7D613AF4-7884-4B09-A9CE-B941E801F4E4">
+      <dmn:requiredInput href="#_B49EF234-C4AA-4C53-853A-4B38CED77232"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_C286D6A5-A297-4319-8D16-C0E1FAE2A974">
+      <dmn:requiredInput href="#_7C19D579-D9EB-4CB3-A24F-023361118FC8"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_A3F400F3-6559-4D11-B5AF-FAC7F507B83B" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_A4732CFC-564D-4408-9DDE-EF3B97063E65">
+        <dmn:inputExpression id="_BAEBFCAF-B019-4EA5-B739-0EAAF7E95D0D" typeRef="string">
+          <dmn:text>state</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_54E818D2-C61E-4ABE-BEA1-853E7DD1CFB4">
+        <dmn:inputExpression id="_D7986B37-5C33-44D2-8498-E4A8C6D30CDC" typeRef="string">
+          <dmn:text>insurer</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_2ADBA86B-9295-4E7B-81D4-ABFC335C2905">
+        <dmn:inputExpression id="_7B7D2CEF-6A8B-4CA3-AB9B-809BDDEEF0BC" typeRef="string">
+          <dmn:text>owner</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_B01C9B5E-5379-49B9-BD49-7F54374A97E2" name="class" typeRef="string"/>
+      <dmn:output id="_60806FAF-81CE-4ABF-9467-98D0269FEA30" name="make" typeRef="string"/>
+      <dmn:output id="_A36D65E1-9753-4F9A-BA97-A630AA034CF8" name="model" typeRef="string"/>
+      <dmn:output id="_9256C746-6EBF-45A7-9296-1C8EDB4B808D" name="status" typeRef="string"/>
+      <dmn:annotation name="annotation-1"/>
+      <dmn:rule id="_8CEAA99F-952B-47CB-9E0F-EAFC511E166D">
+        <dmn:inputEntry id="_6BA63344-2F8E-488C-BA2B-332FDCAD0B86">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_795B9166-07A3-46E2-A89A-0E7479238A72">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_F06824F8-EA68-4962-9269-40B1FEED715E">
+          <dmn:text>"government", "emergency"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_50ABB1FE-71E6-44CA-B022-666469DE9260">
+          <dmn:text>"NONE"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_F39964CD-2B52-43B6-8D33-5D994C6779D4">
+          <dmn:text>"TOYOTA"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_3FB49A8E-7A85-43D8-99DA-28C1A40FC359">
+          <dmn:text>"CAMRY"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_D366D179-CC53-4084-A5E1-139E4F6584DB">
+          <dmn:text>"REGISTERED"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_675295AC-4293-4937-8331-BA08EA53AFD5">
+        <dmn:inputEntry id="_8F8A276B-F479-41F9-96BD-B4D2EE58864C">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_DBBE908C-915F-485F-BEC6-4283806E1A27">
+          <dmn:text>"9000"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_6BE91BB3-345E-40A6-82C8-C243C8D612DC">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_34F4AB33-21C2-49C9-97B3-011210A1943B">
+          <dmn:text>"NONE"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_714F009B-72B6-4F27-97E5-1EF13A39D312">
+          <dmn:text>"FORD"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_2BD9EC9E-08FD-4CF2-B946-272AF6B9153C">
+          <dmn:text>"F-150"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_97B93E3A-5277-42D7-AE48-264C913BBE10">
+          <dmn:text/>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_14DD08C1-798C-4896-98D3-8336ECD23670">
+        <dmn:inputEntry id="_6FF27160-27E0-48D3-80C7-DF28EF236735">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_396EBDB6-6DC1-4F31-9A4D-9BDD2AFA03E4">
+          <dmn:text>"SJAM"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_84897B67-FD7B-4E83-BCB1-737100B293A9">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_68F9D77F-2D45-4A13-A27D-0384D362E47F">
+          <dmn:text>"NONE"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_BB3DB3ED-2360-454B-8DD9-C1EF8ABC0813">
+          <dmn:text>"KIA"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_45217994-8F58-4C69-B149-F20F0F31F803">
+          <dmn:text>"OPTIMA"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_31672C2C-CD57-4B27-A15A-8EBEE5BCE6D5">
+          <dmn:text/>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_464C4784-FE52-45BC-8702-7EC74973CE72">
+        <dmn:inputEntry id="_0B14915F-98E6-4FE7-B4B8-4224E1356BFF">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_887FD79D-EEA9-4D45-8496-70B0B74F433C">
+          <dmn:text>"SLAM"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_C8105910-DD37-4590-AD2A-48ADED0B77E5">
+          <dmn:text>starts with(?,"LTS-")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_E94A8440-F262-4081-8478-4953A9143C20">
+          <dmn:text>"NONE"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_CD9B2A73-CE20-4BD6-ADCB-1BECB2375A76">
+          <dmn:text>"FORD"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_1DEEB474-DEA0-4D66-91EF-F09ABB793BE9">
+          <dmn:text>"F-250"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_1DEBA310-B725-4D38-A153-030CAF551D84">
+          <dmn:text/>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_0C70542B-B773-46DB-9B52-D07188EE4D1D" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_A3F400F3-6559-4D11-B5AF-FAC7F507B83B">
+            <kie:width>50</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>319</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>294</kie:width>
+            <kie:width>233</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_577EC853-35A5-4CFF-AE2A-4F1607F6E1B3" dmnElementRef="_577EC853-35A5-4CFF-AE2A-4F1607F6E1B3" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="114" y="22" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_B49EF234-C4AA-4C53-853A-4B38CED77232" dmnElementRef="_B49EF234-C4AA-4C53-853A-4B38CED77232" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="114" y="89" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_7C19D579-D9EB-4CB3-A24F-023361118FC8" dmnElementRef="_7C19D579-D9EB-4CB3-A24F-023361118FC8" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="114" y="156" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_DC923692-72C5-40D5-9BB6-1C286E37E09C" dmnElementRef="_DC923692-72C5-40D5-9BB6-1C286E37E09C" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="464" y="90" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_2B532C7A-F12C-4C2B-BD24-B71032EA3919" dmnElementRef="_2B532C7A-F12C-4C2B-BD24-B71032EA3919">
+        <di:waypoint x="164" y="72"/>
+        <di:waypoint x="514" y="90"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_7D613AF4-7884-4B09-A9CE-B941E801F4E4" dmnElementRef="_7D613AF4-7884-4B09-A9CE-B941E801F4E4">
+        <di:waypoint x="164" y="114"/>
+        <di:waypoint x="514" y="90"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_C286D6A5-A297-4319-8D16-C0E1FAE2A974" dmnElementRef="_C286D6A5-A297-4319-8D16-C0E1FAE2A974">
+        <di:waypoint x="164" y="181"/>
+        <di:waypoint x="514" y="90"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+    <dmndi:DMNDiagram id="_1AC9B022-331C-4773-91E9-F6834B5CE61A" name="new-diagram">
+      <di:extension>
+        <kie:ComponentsWidthsExtension/>
+      </di:extension>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
